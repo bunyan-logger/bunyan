@@ -11,7 +11,11 @@ defmodule Bunyan.MixProject do
       :bunyan,
       "0.5.0",
       &deps/1,
-      "All-plugins-included version of the Bunyan distributed and pluggable logging system"
+      """
+      An all-plugins-included version of the Bunyan distributed and pluggable
+      logging system. (Thanks to Benjamin Coppock for letting me steal his
+      project name)
+      """
     )
   end
 

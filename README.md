@@ -533,4 +533,12 @@ I needed a distributed logger as part of the Toyland project, and
 couldn't find what I needed. I also wanted to experiment with something
 more decoupled than the available options.
 
+## A Big, Big Thank You!
+
+To Benjamin Coppock, who let me take over the project name Bunyan on
+Hex. His original project is still available as
+
+    { bunyan: "0.1.0" }
+
+
 [1]: https://linux.die.net/man/8/logrotate
