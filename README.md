@@ -75,7 +75,22 @@ in a tabular structure.
 
 ## Architecture
 
-<img title="architecture diagram showing sources, collector, and writers" src="./assets/images/overall_architecture.png">
+         SOURCES                    CORE                     WRITERS
+
+    ╭──────────────╮                                    ╭────────────────╮
+    │ Programmatic │╲                                   │ Write to stdout│
+    │     API      │  ╲                              ↗  │ files, etc     │
+    ╰──────────────╯    ╲                          ╱    ╰────────────────╯
+                          ╲                      ╱
+    ╭──────────────╮        ↘  ╭──────────────╮╱        ╭────────────────╮
+    │ Erlang error │ ╌╌╌╌╌╌╌╌→ │ Collect &    │ ╌╌╌╌╌╌→ │   Write to     │
+    │   logger     │         ↗ │ distribute   │         │  remote node   │
+    ╰──────────────╯       ╱   ╰──────────────╯╲        ╰────────────────╯
+                         ╱                        ╲
+    ╭──────────────╮   ╱                             ↘  ╭────────────────╮
+    │    Remote    │ ╱                                  │     etc        │
+    │    reader    │                                    │                |
+    ╰──────────────╯                                    ╰────────────────╯
 
 Bunyan takes logging input from a variety of sources. It is distributed
 with three:
