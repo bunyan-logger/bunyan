@@ -84,7 +84,7 @@ in a tabular structure.
                           ╲                      ╱
     ╭──────────────╮        ↘  ╭──────────────╮╱        ╭────────────────╮
     │ Erlang error │ ╌╌╌╌╌╌╌╌→ │ Collect &    │ ╌╌╌╌╌╌→ │   Write to     │
-    │   logger     │         ↗ │ distribute   │         │  remote node   │
+    │   logger     │     ╱╌╌╌→ │ distribute   │         │  remote node   │
     ╰──────────────╯    ╱      ╰──────────────╯╲        ╰────────────────╯
                        ╱                         ╲
     ╭──────────────╮  ╱                              ↘  ╭────────────────╮
