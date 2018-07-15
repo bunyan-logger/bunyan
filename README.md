@@ -73,7 +73,6 @@ in a tabular structure.
 
 * tba
 
-
 ## Architecture
 
 <img title="architecture diagram showing sources, collector, and writers" src="./assets/images/overall_architecture.png">
@@ -103,6 +102,32 @@ allow you to (for example) log everything to standard error, errors only
 to a log file, and warnings and errors to two separate remote loggers.
 
 You can easily add new sources and new writers to Bunyan.
+
+### Components
+
+Bunyan is organized as a core module, `bunyan_core`, and a set of
+plugins. If you just use this project (`bunyan`) as a dependency, you'll
+automatically get them all.
+
+Alternatively, you can use `bunyan_core` as a dependency, and then add
+just the plugins that you want to use. You only have to add a plugin as
+a dependency if you declare it in the configuration (see below).
+
+The various components are:
+
+| Name              | Function |
+| ------------------|----------|
+| [bunyan_core](https://github.com/bunyan-logger/bunyan_core) | The _Collector_ component, which distributes incoming messages to writers |
+| [bunyan_source_api](https://github.com/bunyan-logger/bunyan_source_api) | Provides the API to the logger (the stuff called by your application) |
+| [buyan_source_erlang_error_logger](https://github.com/bunyan-logger/buyan_source_erlang_error_logger) | Injects Erlang, OTP, and SASL errors |
+| [bunyan_source_remote_reader](https://github.com/bunyan-logger/bunyan_source_remote_reader) | Injects log messages sent from a remote node |
+| [bunyan_writer_device](https://github.com/bunyan-logger/bunyan_writer_device) | Write messages to a console, file, or other device. |
+| [bunyan_writer_remote](https://github.com/bunyan-logger/bunyan_writer_remote) | Write messages to a remote node |
+
+There are two additional components,
+[bunyan_shared](https://github.com/bunyan-logger/bunyan_shared) and
+[bunyan_util](https://github.com/bunyan-logger/bunyan_util), that are
+used by the plugins. You do not need to declare these as dependencies.
 
 ## Log Levels
 
