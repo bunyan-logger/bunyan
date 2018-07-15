@@ -76,15 +76,15 @@ in a tabular structure.
 ## Architecture
 
          SOURCES                    CORE                     WRITERS
-
+         ‾‾‾‾‾‾‾                    ‾‾‾‾                     ‾‾‾‾‾‾‾
     ╭──────────────╮                                    ╭────────────────╮
     │ Programmatic │ \                             ---->│ Write to stdout│
     │     API      │  \                           /     │ files, etc     │
     ╰──────────────╯   \                         /      ╰────────────────╯
                         \                       /
     ╭──────────────╮     ----> ╭──────────────╮/        ╭────────────────╮
-    │ Erlang error │ ╌╌╌╌╌╌╌╌> │ Collect &    │ ╌╌╌╌╌╌> │   Write to     │
-    │   logger     │     ----> │ distribute   │         │  remote node   │
+    │ Erlang error │ ╌╌╌╌╌╌╌╌> │ Collect &    │╌╌╌╌╌╌╌> │   Write to     │
+    │   logger     │     ----> │ distribute   │\        │  remote node   │
     ╰──────────────╯    /      ╰──────────────╯ \       ╰────────────────╯
                        /                         \
     ╭──────────────╮  /                           \     ╭────────────────╮
