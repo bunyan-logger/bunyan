@@ -507,10 +507,10 @@ wanted to show all the options:
 
 ## To Do
 
-[ ] Runtime configuration (hooks are in place)
-[ ] Guides for creating your own sources and writers
-[ ] Finish off reformatting of Erlang error logger and sasl messages
-    (framework in place)
+- [ ] Runtime configuration (hooks are in place)
+- [ ] Guides for creating your own sources and writers
+- [ ] Finish off reformatting of Erlang error logger and sasl messages
+      (framework in place)
 
 ## Why Another Logger?
 
