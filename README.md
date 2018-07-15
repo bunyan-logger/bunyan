@@ -141,7 +141,7 @@ The various components are:
 
 There are two additional components,
 [bunyan_shared](https://github.com/bunyan-logger/bunyan_shared) and
-[bunyan_util](https://github.com/bunyan-logger/bunyan_util), that are
+[bunyan_formatter](https://github.com/bunyan-logger/bunyan_formatter), that are
 used by the plugins. You do not need to declare these as dependencies.
 
 ## Log Levels
