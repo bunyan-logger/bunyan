@@ -1,4 +1,7 @@
-<img align="right" width="200" title="logo: a beaver with an ax (because it's a logger, just like Paul Bunyan)" src="./assets/images/beaver_PNG57.png">
+<img align="right" width="200" title="logo: a beaver with an ax (because
+it's a logger, just like Paul Bunyan). Modification of BY-NC image
+http://pngimg.com/download/31356 (color reduction)"
+src="./assets/images/beaver_PNG57.png">
 
 # Bunyan: An Elixir Logger
 
@@ -9,9 +12,10 @@
 
 * should be performant, as it
   * does not compile calls to the logger below the compile time log
-    level,
-  * bypasses the implicit serialization of the event-based loggers,
-  * uses broadcasts where appropriate, and
+    level;
+  * bypasses the implicit serialization of the event-based loggers—it
+    is asynchronous throughout;
+  * uses broadcasts where appropriate; and
   * uses iolists to construct messages where it can.
 
 * humane formatting of multi-line messages (including error_logger and
@@ -42,7 +46,7 @@ import Bunyan
 
 info("Starting database compaction", %{
   database: "prod_orders",
-  mode:     :concurrent
+  mode:     :concurrent,
 })
 
 # ...
@@ -55,16 +59,12 @@ warn("These carts have referrers and cannot be deleted:",
      [ 48792, 49352, 49720, 50155, 57782 ])
 
 # ...
-error("This cart is locked and cannot be deleted",
-      %{
-        id: 49823,
-        user_id: 2009481,
-        created: "2018-06-14 12:34:56",
-        name: "Lisa Simpson",
-        address: nil
-    })
 
-info("1,391 ophaned carts removed")
+error("This cart is locked and cannot be deleted", cart)
+
+# ...
+
+info("1,390 ophaned carts removed")
 ~~~
 
 And here's the result if you've configured Bunyan to log to a console
@@ -129,10 +129,10 @@ in a tabular structure.
     │ Programmatic │ \                             ---->│ Write to stdout│
     │     API      │  \                           /     │ files, etc     │
     ╰──────────────╯   \                         /      ╰────────────────╯
-                        \                       /
-    ╭──────────────╮     ----> ╭──────────────╮/        ╭────────────────╮
-    │ Erlang error │ ╌╌╌╌╌╌╌╌> │ Collect &    │╌╌╌╌╌╌╌> │   Write to     │
-    │   logger     │     ----> │ distribute   │\        │  remote node   │
+                        \      ╭──────────────╮ /
+    ╭──────────────╮     ----> │   Collect    │/        ╭────────────────╮
+    │ Erlang error │ ╌╌╌╌╌╌╌╌> │      &       │╌╌╌╌╌╌╌> │   Write to     │
+    │   logger     │     ----> │ Distribute   │\        │  remote node   │
     ╰──────────────╯    /      ╰──────────────╯ \       ╰────────────────╯
                        /                         \
     ╭──────────────╮  /                           \     ╭────────────────╮
@@ -150,7 +150,7 @@ with three:
   logger (which we call remote logging)
 
 These sources are all plugins: you have to add them as dependencies (or
-use the batteries-included hex package) if you want to use them.
+use the batteries-included hex package) if you want to use them. Y
 
 The sources send log messages to the collector. This in turn forwards
 the messages to the various log writers. Two writers come as standard:
