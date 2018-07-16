@@ -29,6 +29,47 @@ consoles, files, and remote nodes. If you want to configure a more
 minimal installation, have a look at [Bunyan
 Core](https://github.com/bunyan-logger/bunyan_core).
 
+## Show Me!
+
+Here's some code that writes log messages. Obviously, in real code the
+values wouldn't be hardcoded...
+
+~~~ elixir
+require Bunyan
+import Bunyan
+
+info("Starting database compaction", %{
+  database: "prod_orders",
+  mode:     :concurrent
+})
+
+# ...
+
+info("1,396 orphaned carts found")
+
+# ...
+
+warn("These carts have referrers and cannot be deleted:",
+     [ 48792, 49352, 49720, 50155, 57782 ])
+
+# ...
+error("This cart is locked and cannot be deleted",
+      %{
+        id: 49823,
+        user_id: 2009481,
+        created: "2018-06-14 12:34:56",
+        name: "Lisa Simpson",
+        address: nil
+    })
+
+info("1,391 ophaned carts removed")
+~~~
+
+And here's the result if you've configured Bunyan to log to a console
+with ANSI color support.
+
+![Example of Bunyan console output](./assets/images/log_example_1.png)
+
 ## Try It
 
 There's a simple demo of networked, hierarchical logging at
