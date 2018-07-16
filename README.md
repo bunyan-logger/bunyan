@@ -29,6 +29,11 @@ consoles, files, and remote nodes. If you want to configure a more
 minimal installation, have a look at [Bunyan
 Core](https://github.com/bunyan-logger/bunyan_core).
 
+## Try It
+
+There's a simple demo of networked, hierarchical logging at
+https://github.com/bunyan-logger/demo-remote-logging.
+
 ## Summary
 
 ### Summary of the Summary

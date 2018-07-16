@@ -9,7 +9,7 @@ defmodule Bunyan.MixProject do
   def project() do
     Build.project(
       :bunyan,
-      "0.5.0",
+      "0.5.1",
       &deps/1,
       """
       An all-plugins-included version of the Bunyan distributed and pluggable
@@ -24,14 +24,14 @@ defmodule Bunyan.MixProject do
   def deps(_) do
     [
       bunyan:  [
-        bunyan_core:                        ">= 0.0.0",
-        bunyan_formatter:                   ">= 0.0.0",
-        bunyan_shared:                      ">= 0.0.0",
-        bunyan_source_api:                  ">= 0.0.0",
-        bunyan_source_erlang_error_logger:  ">= 0.0.0",
-        bunyan_source_remote_reader:        ">= 0.0.0",
-        bunyan_writer_device:               ">= 0.0.0",
-        bunyan_writer_remote:               ">= 0.0.0",
+        bunyan_core:                        ">= 0.5.0",
+        bunyan_formatter:                   ">= 0.5.0",
+        bunyan_shared:                      ">= 0.5.0",
+        bunyan_source_api:                  ">= 0.5.0",
+        bunyan_source_erlang_error_logger:  ">= 0.5.0",
+        bunyan_source_remote_reader:        ">= 0.5.0",
+        bunyan_writer_device:               ">= 0.5.0",
+        bunyan_writer_remote:               ">= 0.5.0",
       ],
       others:  [],
     ]
