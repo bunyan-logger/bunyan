@@ -8,9 +8,11 @@
   other nodes)
 
 * should be performant, as it
-  * bypasses the implicit serialization of the event based approach,
-  * uses broadcasts where a appriopriate, and
-  * uses iolists to construct messages
+  * does not compile calls to the logger below the compile time log
+    level,
+  * bypasses the implicit serialization of the event-based loggers,
+  * uses broadcasts where appropriate, and
+  * uses iolists to construct messages where it can.
 
 * humane formatting of multi-line messages (including error_logger and
   SASL)
