@@ -531,6 +531,7 @@ wanted to show all the options:
 - [ ] Guides for creating your own sources and writers
 - [ ] Finish off reformatting of Erlang error logger and sasl messages
       (framework in place)
+- [ ] Add support for OTP 21 `:logger`
 
 ## Why Another Logger?
 
