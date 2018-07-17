@@ -9,7 +9,6 @@ defmodule Bunyan.MixProject do
   def project() do
     Build.project(
       :bunyan,
-      "0.5.1",
       &deps/1,
       """
       An all-plugins-included version of the Bunyan distributed and pluggable
