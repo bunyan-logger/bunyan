@@ -181,8 +181,7 @@ The various components are:
 | Name              | Function |
 | ------------------|----------|
 | [bunyan_core](https://github.com/bunyan-logger/bunyan_core) | The _Collector_ component, which distributes incoming messages to writers |
-| [bunyan_source_api](https://github.com/bunyan-logger/bunyan_source_api) | Provides the API to the logger (the stuff called by your application) |
-| [buyan_source_erlang_error_logger](https://github.com/bunyan-logger/buyan_source_erlang_error_logger) | Injects Erlang, OTP, and SASL errors |
+| [buyan_source_erlang_error_logger](https://github.com/bunyan-logger/bunyan_source_erlang_error_logger) | Injects Erlang, OTP, and SASL errors |
 | [bunyan_source_remote_reader](https://github.com/bunyan-logger/bunyan_source_remote_reader) | Injects log messages sent from a remote node |
 | [bunyan_writer_device](https://github.com/bunyan-logger/bunyan_writer_device) | Write messages to a console, file, or other device. |
 | [bunyan_writer_remote](https://github.com/bunyan-logger/bunyan_writer_remote) | Write messages to a remote node |
